@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Customer Support Service</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="../static/logo.png" alt="fisherman" class="logo" />
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Customer Name</h3>
+          <input type="text" name="customer" placeholder="Edgar Allan Poe" />
+        </div>
+        <div class="form-group">
+          <h3>Customer Email</h3>
+          <input type="email" name="email" placeholder="example@mail.com" />
+        </div>
+        <div class="form-group">
+          <h3>Contact Phone Number</h3>
+          <input type="tel" name="phone" placeholder="+38 095 444 33 22" />
+        </div>
+        <div class="form-group">
+          <h3>Provider</h3>
+          <select name="dealer">
+            <option value="">Select Your Internet Service Provider</option>
+            <option value="Kyiv Fake Inc">Kyiv Fake Inc</option>
+            <option value="Lviv Fake Inc">Lviv Fake Inc</option>
+            <option value="Kharkiv Fake Inc">Kharkiv Fake Inc</option>
+            <option value="Odesa Fake Inc">Odesa Fake Inc</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Please Rate Severity Of Your Problem:</h3>
+          <input type="radio" name="rating" value="1" /> 1
+          <input type="radio" name="rating" value="2" /> 2
+          <input type="radio" name="rating" value="3" /> 3
+          <input type="radio" name="rating" value="4" /> 4
+          <input type="radio" name="rating" value="5" checked /> 5
+        </div>
+        <div class="form-group">
+          <h3>Add Comments(if any)</h3>
+          <textarea
+            name="comments"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Please Describe a Problem Briefly?"
+          ></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn" />
+      </form>
+    </div>
+  </body>
+</html>
+
